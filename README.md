@@ -1,50 +1,25 @@
-# Header
+# Popsrun Theme
 
-## layout
+## Install
 
-### Main Page
+```sh
+git submodule add git@github.com:andromediano/popsrun.git themes/popsrun
 ```
-layout/index.html
-  partials/header.html
-    partials/article-card.html
-    _internal/pagination.html
-  partials/footer.html
-```
+---
 
-### Default List (Tag List)
-```
-layout/_default/list.html
-  partials/header.html
-    partials/article-card.html
-    _internal/pagination.html
-  partials/footer.html
-```
+## Configuration
 
-### Series List
+```yaml
+baseURL: "/"
+languageCode: "ko-kr"
+title: "MyBlog"
+theme: "popsrun"
 ```
-layout/series/list.html
-  partials/header.html
-    partials/article-card.html
-    _internal/pagination.html
-  partials/footer.html
-```
+---
 
-### Default Detail Page
-```
-layout/_default/single.html
-  partials/header.html
-    partials/article-header.html
-    partials/article-content.html
-    partials/article-footer.html
-  partials/footer.html
-```
+## Start Server
 
-### Pages Detail Page
+```sh
+hugo server
 ```
-layout/_default/single.html
-  partials/header.html
-    partials/page-header.html
-    partials/article-content.html
-    partials/article-footer.html
-  partials/footer.html
-```
+---
