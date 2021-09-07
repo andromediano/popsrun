@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    {{ partial "header.html" . }}
+
+    <!--/*
+    * https://gohugo.io/templates/lists/
+    */-->
+    <div class="blog-content">
+      <!--/* card list */-->
+      <div>
+        {{ $page := .Paginate .Pages }}
+        {{ range $page.Pages }}
+          {{ partial "article-card.html" . }}
+        {{ end }}
+      </div>
+      <!--/* pagination */-->
+      <div class="nav justify-content-center">
+        {{ template "_internal/pagination.html" . }}
+      </div>
+    </div>
+
+    {{ partial "footer.html" . }}
+  </body>
+</html>

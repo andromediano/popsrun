@@ -1,0 +1,61 @@
+        <!-- PART CONTAINER MAIN 1 -->
+        <div class="ps-lg-4">
+          <div class="d-md-flex flex-md-column">
+            <h1 class="mb-4">
+              {{ if .Draft }} <code title="DRAFT">[DRAFT{{ if .Params.seriesOrder }}/{{ .Params.seriesOrder }}{{ end }}]</code> {{ end }}
+              {{ .Title }}</h1>
+
+              {{ if .Description }}
+                <p>{{ .Description }}</p>
+              {{ end }}
+
+            <div>
+              <b>문서생성일</b>: <time>{{ .PublishDate.Format "2006-01-02" }}</time>
+              {{ if ne .PublishDate .Lastmod }}
+                / <b>최근수정일</b>: <time>{{ .Lastmod.Format "2006-01-02" }}</time>
+              {{ end }}
+              by <a href="{{ .Params.profile | default .Site.Author.profile | default "#" }}">{{ .Params.author | default .Site.Author.name }}</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!--
+        + PART CONTAINER MAIN 2
+        + https://gohugo.io/content-management/toc/
+        `-->
+        <div class="blog-toc mt-4">
+          <h6 class="pb-2 border-bottom">TOC</h6>
+          {{ .TableOfContents }}
+        </div>
+
+        <!-- PART CONTAINER MAIN CONTENT -->
+        <div class="blog-content ps-lg-4">
+
+          <article class="article" itemscope="" itemtype="http://schema.org/BlogPosting">{{ .Content }}</article>
+
+          <!--
+          + https://gohugo.io/content-management/related/
+          `-->
+          {{ $related := .Site.RegularPages.Related . | first 5 }}
+          {{ with $related }}
+          <h2>관련글</h2>
+          <ul>
+            {{ range . }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+          </ul>
+          <hr/>
+          {{ end }}
+
+          {{ if .Params.tags }}
+            <p>
+              <span>Tagged:</span>
+              {{ $len := len .Params.tags }}
+              {{ range $index, $tag := .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/" class="badge text-decoration-none article-tag"><i class="bi-tag"></i> {{ . }}</a>
+                {{- if lt $index (sub $len 1) -}}, {{ end }}
+              {{ end }}
+            </p>
+          {{ end}}
+        </div>

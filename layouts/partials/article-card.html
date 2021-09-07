@@ -1,0 +1,18 @@
+<div class="card mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-{{ cond (isset .Params "image") "9" "12" }}">
+      <div class="card-body">
+        {{ if .Draft }} <code title="DRAFT">[DRAFT{{ if .Params.seriesOrder }}/{{ .Params.seriesOrder }}{{ end }}]</code> {{ end }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}" class="card-text">{{ .Date.Format "2006-01-02" }}</time>
+        {{ if ne .PublishDate .Lastmod }}(<time>{{ .Lastmod.Format "2006-01-02" }}</time>){{ end }}
+        <h5 class="card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h5>
+        <p class="card-text">{{ .Summary }}</p>
+      </div>
+    </div>
+    {{ with .Params.Image }}
+      <div class="col-md-3">
+        <img src="{{ . }}" class="card-img" alt="..."/>
+      </div>
+    {{ end }}
+  </div>
+</div>

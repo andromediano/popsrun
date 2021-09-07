@@ -1,0 +1,26 @@
+    <!-- PART HEADER -->
+    <header class="navbar navbar-expand-md blog-navbar">
+    </header>
+
+    <!-- PART SUB NAVIGATION -->
+    <nav class="blog-subnavbar py-2" aria-label="Secondary navigation">
+      <div class="container-xxl d-flex align-items-md-center">
+        <a href="/pages/tools">Tools</a>
+        &nbsp;</div>
+    </nav>
+
+    <!-- PART CONTAINER START -->
+    <div class="container-xxl my-md-4 blog-layout">
+      <!-- PART CONTAINER ASIDE -->
+      <aside class="blog-sidebar">
+        <div class="logo">
+          <a href="{{ .Site.BaseURL }}"><img src="/images/logo.png" class="img-fluid rounded" alt="LOGO"/></a>
+        </div>
+        <div class="mb-4">
+          <h3 class="text-center">&laquo;{{ .Site.Author.name }}&raquo;</h3>
+        </div>
+        <div>{{ partial "taxonomies.html" . }}</div>
+      </aside>
+
+      <!--/* PART CONTAINER_MAIN START */-->
+      <main class="blog-main order-1">

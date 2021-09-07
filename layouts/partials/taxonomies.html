@@ -1,0 +1,22 @@
+<!--
+<h4>Categories</h4>
+<section class="mb-4">
+    {{ range .Site.Taxonomies.categories }}
+        <a href="{{ .Page.Permalink }}" class="badge badge-primary">#{{ .Page.Title }} <sup class="badge badge-light">{{ .Count }}</sup></a>
+    {{ end }}
+</section>
+-->
+
+<h4>Series</h4>
+<section class="mb-4">
+  {{ range .Site.Taxonomies.series }}
+    <div><a href="{{ .Page.Permalink }}" class="fs-6">{{ .Page.Title }} <sup class="text-dark">{{ .Count }}</sup></a></div>
+  {{ end }}
+</section>
+
+<h4>Tags</h4>
+<section class="mb-4">
+  {{ range .Site.Taxonomies.tags }}
+    <a href="{{ .Page.Permalink }}" class="badge aside-tag">{{ .Page.Title }} <sup class="text-white">{{ .Count }}</sup></a>
+  {{ end }}
+</section>

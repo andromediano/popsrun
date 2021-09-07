@@ -1,0 +1,18 @@
+<!--
+Main Page
+-->
+<!-- PART CONTAINER MAIN CONTENT -->
+<div class="blog-content">
+
+  <div>
+    {{ $page := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+    {{ range $page.Pages }}
+      {{ partial "article-card.html" . }}
+    {{ end }}
+  </div>
+
+  <div class="nav justify-content-center">
+    {{ template "_internal/pagination.html" . }}
+  </div>
+
+</div>

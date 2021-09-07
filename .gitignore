@@ -1,0 +1,17 @@
+# ❗️Common Setings
+# 숨김파일들은 일단 관리대상에서 제외시킨다.
+# 필요한 경우 예외를 둔다.
+.*
+
+# Git
+!.gitignore
+!.gitmodules
+
+# Prettier
+!.prettierignore
+
+# Log, Backup, Swap files
+*.log
+*.bak
+*.sw?
+*~
