@@ -11,7 +11,7 @@ function convertObsidianLink(element) {
       if (text) {
         let regexp = new RegExp('(.*)\\[\\[(.*)\\]\\](.*)', 'g');
         if (regexp.test(text)) {
-          element.parentNode.innerHTML = `<a href="${RegExp.$2}">${(RegExp.$1.length === 0) ? RegExp.$2 : RegExp.$1}</a>`;
+          element.parentNode.innerHTML = `<a href="${RegExp.$2}">${(RegExp.$1.length === 0) ? RegExp.$2 : RegExp.$1}</a>${RegExp.$3}`;
           //console.log(`<a href="${RegExp.$2}">${(RegExp.$1.length === 0) ? RegExp.$2 : RegExp.$1}</a>`);
         }
       }
