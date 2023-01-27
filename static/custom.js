@@ -9,10 +9,10 @@ function convertObsidianLink(element) {
   } else {
       const text = element.textContent;
       if (text) {
-        let regexp = new RegExp('(.*)\\[\\[(.*)\\]\\](.*)', 'g');
+        // $1: first, $2: link, $4: name, $5: last
+        let regexp = new RegExp('(.*)\\[\\[([^|]*)(\\|(.*))?\\]\\](.*)', 'g');
         if (regexp.test(text)) {
-          element.parentNode.innerHTML = `<a href="${RegExp.$2}">${(RegExp.$1.length === 0) ? RegExp.$2 : RegExp.$1}</a>${RegExp.$3}`;
-          //console.log(`<a href="${RegExp.$2}">${(RegExp.$1.length === 0) ? RegExp.$2 : RegExp.$1}</a>`);
+          element.parentNode.innerHTML = `${RegExp.$1}<a href="${RegExp.$2}">${(RegExp.$4.length === 0) ? RegExp.$2 : RegExp.$4}</a>${RegExp.$5}`;
         }
       }
   }
