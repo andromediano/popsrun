@@ -14,7 +14,7 @@
               {{ if ne .PublishDate .Lastmod }}
                 / <b>최근수정일</b>: <time>{{ .Lastmod.Format "2006-01-02" }}</time>
               {{ end }}
-              by <a href="{{ .Params.profile | default .Site.Author.profile | default "#" }}">{{ .Params.author | default .Site.Author.name }}</a>
+              by <a href="{{ .Params.profile | default .Site.Params.Author.profile | default "#" }}">{{ .Params.author | default .Site.Params.Author.name }}</a>
             </div>
 
           </div>
